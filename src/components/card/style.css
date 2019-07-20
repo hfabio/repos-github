@@ -1,0 +1,24 @@
+.card {
+    width: 500px;
+    height: 200px;
+    border: 1px black solid;
+    margin: 20px 0px;
+    border-radius: 25px;
+}
+
+.card-title {
+    width: 100%;
+    height: 30px;
+    font-family: monospace;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: rgba(25, 25, 25, 0.01);
+}
+
+.card-body {
+    content: 'aa';
+    width: 100%;
+    height: 78%;
+    background-color: rgba(25, 25, 25, 0.05);
+}
