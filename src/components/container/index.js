@@ -12,8 +12,8 @@ export default class container extends Component {
 
     render() {
         const repositories = this.state.repos.map((repo) => {
-            //console.log(repo);
-            return <Card title={repo.name} key={repo.id} description={repo.description} />
+            console.log(repo);
+            return <Card title={repo.name} key={repo.id} description={repo.description} link={repo.html_url} />
         });
         return (
             <div className='container' >
