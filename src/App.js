@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './components/header';
 import Container from './components/container';
 
-function App() {
-  return (
-    <div className="App">
-      <header>
-        <Header />
-      </header>
-      <Container />
-    </div>
-  );
-}
+export default class App extends Component {
 
-export default App;
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: 'hfabio'
+    }
+
+    this.changeUser = this.changeUser.bind(this);
+  }
+
+  changeUser(user) {
+    this.setState({ user: user });
+  }
+
+  render() {
+    return (
+      <div className="App" >
+        <Header changeUser={this.changeUser} />
+        <Container user={this.state.user} />
+      </div>
+    );
+  }
+}

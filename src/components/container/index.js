@@ -6,13 +6,14 @@ export default class container extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            repos: []
+            repos: [],
+            user: 'hfabio'
         }
     }
 
     render() {
         const repositories = this.state.repos.map((repo) => {
-            console.log(repo);
+            //console.log(repo);
             return <Card title={repo.name} key={repo.id} description={repo.description} link={repo.html_url} />
         });
         return (
@@ -26,13 +27,27 @@ export default class container extends Component {
         this.getRepos();
     }
 
+    updateUser() {
+        this.setState({ user: this.props.user }, () => {
+            //console.log(this.state.user);
+            this.getRepos();
+        });
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.user !== this.props.user) {
+            this.updateUser();
+        }
+    }
+
     getRepos() {
-        fetch('https://api.github.com/users/hfabio/repos')
+        //console.log(`https://api.github.com/users/${this.state.user}/repos`);
+        fetch(`https://api.github.com/users/${this.state.user}/repos`)
             .then((res) => {
                 return res.json();
             })
             .then((res) => {
-                console.log(res);
+                //console.log(res);
                 this.setState({ repos: res });
             });
     }
