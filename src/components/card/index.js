@@ -18,10 +18,12 @@ export default class card extends Component {
             <div className="card">
                 <div className="card-title">{this.state.title}</div>
                 <div className="card-body">
-                    <p>
-                    {this.state.description}
-                    </p>
-                    <a href={this.state.link} target='_blank' rel="noopener" >Acesse aqui</a>
+                    <div className="card-text">
+                        <p>
+                            {this.state.description}
+                        </p>
+                        <a href={this.state.link} target='_blank' rel="noopener" >Acesse aqui</a>
+                    </div>
                 </div>
             </div>
         );
